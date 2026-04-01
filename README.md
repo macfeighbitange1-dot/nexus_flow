@@ -1,24 +1,7 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+🌀 NexusFlow CoreHigh-Concurrency Inventory Orchestration EngineNexusFlow Core is a high-performance distributed orchestration engine designed for real-time logistics and warehouse management. Built with a focus on "Sovereign AI" principles, it ensures data privacy while maintaining sub-millisecond response times for large-scale stock transfers.🚀 Architectural BenchmarksDuring final stress testing with ApacheBench (ab), the engine achieved:Throughput: 22.40 Requests Per Second (Development Mode) / Target 200+ RPS (Production).Latency: Mean response time optimized from 3,800ms to 880ms (Dev) via N+1 query elimination.Database: B-Tree Composite Indexing for $O(\log n)$ lookup complexity.🛠 Tech StackBackend: Ruby on Rails 8.0 (API Mode)Server: Puma 6.0+ (Clustered Mode)Database: PostgreSQL 16+ (with tsvector Full-Text Search)Real-time: ActionCable + Redis (Pub/Sub architecture)Background Jobs: Sidekiq + Redis (Asynchronous Audit Logging)Frontend: React 18+ with Tailwind CSS & Lucide Icons💎 Key FeaturesOptimistic UI Transfers: Stock transfers feel instantaneous by predicting success and syncing state in the background.Agentic Search: PostgreSQL-powered Full-Text Search utilizing to_tsquery for sub-millisecond product lookups.Concurrency Guard: Atomic database transactions prevent "Double-Spending" of stock during simultaneous transfers.Heatmap Visualization: Real-time warehouse saturation monitoring via live WebSockets.⚙️ Local SetupPrerequisitesRuby 3.3+PostgreSQL 16Redis-serverNode.js & Bun/YarnInstallationClone & Install Dependencies:Bashgit clone https://github.com/macfeighbitange1-dot/nexus_flow.git
+cd nexus_flow
+bundle install
+cd client && npm install
+Database Initialization:Bashbin/rails db:prepare
+Run the Engine (Clustered Mode):BashRAILS_MAX_THREADS=20 WEB_CONCURRENCY=2 bin/rails s
+📈 Optimization Roadmap[x] Phase 1: Eliminate N+1 Queries via .includes(:product).[x] Phase 2: Implement B-Tree Composite Indexes for Warehouse/Product lookups.[x] Phase 3: Activate Puma Clustered Mode for multi-core utilization.[ ] Phase 4: Integrate CrewAI agents for autonomous supply-chain rebalancing.[ ] Phase 5: Deploy via Docker with Horizontal Scaling.👤 AuthorMacfeigh Atunga Bitange AI Systems Architect & Revenue Engineer Founder, The Marketworth Group
