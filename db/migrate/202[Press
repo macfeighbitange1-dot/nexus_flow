@@ -1,0 +1,18 @@
+class CreateInventoryItems < ActiveRecord::Migration[8.0]
+  def change
+    create_table :inventory_items do |t|
+      t.references :warehouse, null: false, foreign_key: true
+      t.references :product, null: false, foreign_key: true
+      t.integer :quantity, default: 0, null: false
+
+      t.timestamps
+    end
+
+    # The "0.1%" Move: This SQL constraint is faster and more 
+    # reliable than any Ruby validation. 
+    execute "ALTER TABLE inventory_items ADD CONSTRAINT quantity_non_negative CHECK (quantity >= 0);"
+    
+    # Prevents duplicate rows for the same product in the same warehouse.
+    add_index :inventory_items, [:warehouse_id, :product_id], unique: true
+  end
+end
