@@ -18,7 +18,7 @@ gem "redis", ">= 4.0"
 gem "rack-cors"
 
 # Connection Pool: Pinned to < 3.0 to maintain Ruby 3.3.0 compatibility
-gem "connection_pool", "< 3.0"
+gem "connection_pool", "< 4.0"
 
 # Rails 8 high-performance defaults
 gem "solid_cache"
