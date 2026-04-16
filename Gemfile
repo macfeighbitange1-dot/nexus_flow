@@ -3,7 +3,7 @@ source "https://rubygems.org"
 ruby "3.3.0"
 
 # Using Rails 8.0.0 to avoid ActionView SyntaxErrors on Ruby 3.3.0
-gem "rails", "~> 8.0.0"
+gem "rails", "~> 8.1.3"
 
 # PostgreSQL: The high-concurrency source of truth
 gem "pg", "~> 1.1"
